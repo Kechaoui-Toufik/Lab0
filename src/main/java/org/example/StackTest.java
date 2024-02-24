@@ -58,8 +58,14 @@ public class StackTest {
         }
         int initialSize = stack.size();
         int result = stack.peek();
-        Assertions.assertEquals(stack.size(),initialSize);
+        Assertions.assertEquals(initialSize,stack.size());
         Assertions.assertEquals(4,result);
+    }
+
+
+    @Test
+    public void peekShouldThrowAnErrorIfStackIsEmpty(){
+        Assertions.assertThrows(IllegalStateException.class, ()->stack.peek());
     }
 
 
@@ -75,11 +81,11 @@ public class StackTest {
          stack.push(5);
          Assertions.assertFalse(stack.isEmpty());
     }
-   // expandArray, nous n'avons pas besoin de la tester car c'est une fonction privée.
+
     @Test
     public void sizeShouldReturnTheSizeOfTheStack(){
 
-        for(int i = 0;i<5;i++){
+        for(int i = 0; i<5; i++){
             stack.push(i);
         }
         int result = stack.size();
@@ -89,11 +95,13 @@ public class StackTest {
     @Test
     public void expandArrayShouldDoubleTheLengthOftheArray(){
 
-         //pushing more than 10 elements
-         for(int i = 0; i<15; i++){
+          //initial size is 10
+         // c'est pas évident de tester cette fonction car on a pas accès à l'attribut array
+         // de la class stack
+         for(int i = 0; i<20; i++){
               stack.push(i);
          }
-         boolean result = stack.size() > 10;
+         boolean result = stack.size() == 20;
          Assertions.assertTrue(result);
     }
 

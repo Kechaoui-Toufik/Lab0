@@ -12,4 +12,24 @@ public class FibonacciTest {
     public void fibonacciShouldThrowAnExceptionIfNLowerThan0(){
         Assertions.assertThrows(IllegalArgumentException.class,()->Fibonacci.fibonacci(-2));
     }
+
+    @Test
+    public void fibonacciShouldReturn0IfNEquals0(){
+        int result = Fibonacci.fibonacci(0);
+        Assertions.assertEquals(0,result);
+    }
+
+    @Test
+    public void fibonacciShouldReturn1IfNEquals1(){
+        int result = Fibonacci.fibonacci(1);
+        Assertions.assertEquals(1,result);
+    }
+
+    @Test
+    public void fibonacciShouldReturntheResultCalculatedByTheFormula(){
+         int result = Fibonacci.fibonacci(6);
+         Assertions.assertEquals(8,result);
+    }
+
+
 }

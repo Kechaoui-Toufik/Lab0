@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class BlackJackTest {
 
     @Test
-    public void playLnshouldWin1stClass(){
+    public void playShouldReturnTheSmallestScoreIfAPlayerExceed21(){
          BlackJack bj = new BlackJack();
          int ln = 19;
          int rn = 25;
@@ -15,7 +15,7 @@ public class BlackJackTest {
     }
 
     @Test
-    public void playLnshouldWin2ndClass(){
+    public void playShouldReturnTheHighestScoreIfBothPlayersScoreIsBelow21(){
         BlackJack bj = new BlackJack();
         int ln = 19;
         int rn = 15;
@@ -23,13 +23,14 @@ public class BlackJackTest {
         Assertions.assertEquals(ln,result);
     }
 
+    //this test is not passed
     @Test
-    public void playImpossibleCase3rdClass(){
+    public void playShouldThrowAnExceptionIfBothPlayerExceed21(){
         BlackJack bj = new BlackJack();
         int ln = 26;
         int rn = 26;
-        int result = bj.play(ln,rn);
-        Assertions.assertEquals(0,result);
+        Assertions.assertThrows(IllegalStateException.class, ()->bj.play(ln,rn));
+
     }
 
 
