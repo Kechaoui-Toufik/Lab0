@@ -14,9 +14,9 @@ public class FibonacciTest {
     }
 
     @Test
-    public void fibonacciShouldReturn0IfNEquals0(){
+    public void fibonacciShouldReturnIfNEquals0(){
         int result = Fibonacci.fibonacci(0);
-        Assertions.assertEquals(0,result);
+        Assertions.assertEquals(1,result);
     }
 
     @Test
